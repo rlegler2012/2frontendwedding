@@ -1,5 +1,4 @@
 import { useState } from 'react'
-// import { Link } from 'react-router-dom'
     
     const defaultFormState = {
         track: "",
@@ -15,7 +14,7 @@ import { useState } from 'react'
                 return (
                     {
                         ...tempMusicForm,
-                        [e.target.track]: e.target.value
+                        [e.target.name]: e.target.value
                     }
                 )
             })
@@ -39,7 +38,6 @@ import { useState } from 'react'
     
         return (
             <div className="form">
-                {/* <Link to='/musicrequest'>SUBMIT REQUEST</Link> */}
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="track">Song Name</label>
                     <input type="text" name="track" id="track" onChange={handleChange} value={musicForm.track} />
