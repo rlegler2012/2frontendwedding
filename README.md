@@ -13,5 +13,5 @@
 * React
 
 ## Link to Live website
-* Click to access website:
+* Click to access website: https://precious-boba-23bd68.netlify.app/
 
