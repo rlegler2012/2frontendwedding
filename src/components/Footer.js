@@ -1,5 +1,5 @@
 function Footer(props) {
-    return <h1>Copyright @RLegler</h1>;
+    return <h10>Copyright @RLegler    Spotify API</h10>;
   }
   
   export default Footer;

@@ -10,7 +10,7 @@ function Home(props) {
     <br/>
     <br/>
     <h1>Need ideas? <br/></h1>
-    <h3>Search below on Spotify for top artistd and some of their popular albums.</h3>
+    <h3>Search below on Spotify for top artists and some of their popular albums.</h3>
     </>
   )}
   

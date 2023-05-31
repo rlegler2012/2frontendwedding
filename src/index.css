@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +7,59 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+  font-family: 'Noto Serif', Georgia, serif;
+  font-weight: 300;
+  margin: 0;
 }
+
+header {
+  background-color: rgb(109, 53, 94);
+  color: white;
+  padding: 2rem;
+
+}
+
+
+header a {
+  color: white;
+  padding: 1em;
+  padding-bottom: 0em;
+}
+
+.card {
+  border: 1px solid lightgray;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+}
+
+.card-image {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.card-title {
+  background-color: #574560;
+  color: white;
+  border-radius: 0 0 1rem 1rem;
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card-title h3 {
+  font-weight: 300;
+}
+
+.details-container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+

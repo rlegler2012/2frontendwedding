@@ -19,8 +19,8 @@ function App() {
  //now i want to save the token in a string using useState
  const [ accessToken, setAccessToken] = useState([]);
  const [ albums , setAlbums] = useState ([])
-
- //spotify requires access API tokens - will use fetch //got this from spotify documentation --- spotify requires strict code implementation when using things like method, auth, etc - got from documentation and help from multiple youTube resources to help implement https://developer.spotify.com/documentation/web-api/tutorials/code-flow
+ const [ tracks, setSongRequest ] = useState([])
+ //spotify requires access API tokens - will use fetch //got this from spotify documentation --- spotify requires strict code implementation when using things like method, auth, etc - got from documentation and help from multiple youTube resources https://www.youtube.com/watch?v=fVcz-1rVQcs to help implement https://developer.spotify.com/documentation/web-api/tutorials/code-flow
  useEffect(() => {
   let authorization = {
     method: 'POST',
@@ -58,13 +58,13 @@ function App() {
       .then(data => {
         return data.artists.items[0].id
       })
-      console.log("this is artistID" + artistID)
+      // console.log("this is artistID" + artistID)
   //Get request w/ Artist ID, grab all the albums from that artist
       let albumsFetched = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParams)
       .then(response =>
         response.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         setAlbums(data.items)
       })
   //Display those albums to the user
@@ -74,14 +74,14 @@ function App() {
     <div className="App">
       <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home tracks={tracks} setSongRequest={setSongRequest} />} />
           <Route path="/about" element={<About />} />
-          <Route path="/musicrequest" element={<MusicRequest />} />
+          <Route path="/musicrequest" element={ <MusicRequest tracks={tracks} setSongRequest={setSongRequest} /> } />
         </Routes>
           <Container>
             <InputGroup className="mb-3" size="lg">
               <FormControl 
-                placeholder="Search for Artist"
+                placeholder="Search for Artist to find albums"
                 type="input"
                 onKeyDown={event => {
                   if (event.key == "Enter") {
@@ -122,3 +122,6 @@ function App() {
 export default App;
 
 // Spotify documentation https://developer.spotify.com/documentation/web-api/reference/search
+
+//bootstrap documentation https://react-bootstrap.github.io/getting-started/introduction/
+//Responsive 'Containers' allow you to specify a class that is 100% wide until the specified breakpoint is reached, after which we apply max-widths for each of the higher breakpoints ... 'Input Group' Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs, custom selects, and custom file inputs... 'Form Controls' Give textual form controls like <input>s and <textarea>s an upgrade with custom styles, sizing, focus states, and more... 'Row'lets you specify column widths across 6 breakpoint sizes (xs, sm, md, lg, xl and xxl). For every breakpoint, you can specify the amount of columns that will fit next to each other... 'Card' provides a flexible and extensible content container with multiple variants and options.
